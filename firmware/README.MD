@@ -142,3 +142,19 @@ esptool --chip esp32c3  --baud 921600 --before default_reset --after hard_reset 
 4. Check the GPS data according to the guide below
     ![center2](./images/u-center2.gif)
 5. When the location is locked, Click to activate the map view, The location report from u-center2 is accurate.
+
+
+## How can I confirm that my device has entered download mode?
+
+If the port can be recognized, there's usually a problem. Try the following steps:
+
+1. Search for "Serial Debug Assistant" in the Windows Store and install it.
+2. Plug the device into your computer.
+3. Press and hold the BOOT button (the middle of the trackball, press it firmly) without releasing it. Then press the RST reset button once, release the RST reset button, and finally release the BOOT button.
+4. Open Serial Debug Assistant and select the device port.
+5. Check DTR, then open the port, check RTS, and then uncheck DTR.
+
+   ![download](./images/download.gif)
+
+6. You should now see the device's output logs. If the device is in download mode, close the port and reinstall the firmware.
+7. If it fails, repeat the above steps. After entering download mode, do not disconnect the USB or press the reset button.
